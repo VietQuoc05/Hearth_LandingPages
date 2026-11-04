@@ -1,0 +1,89 @@
+---
+import { siteConfig } from '../data/siteContent';
+---
+
+<section class="content-band-cream" id="tac-dong">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow-uppercase">
+        <span class="eyebrow-dot"></span>
+        <span>{siteConfig.impactSection.eyebrow}</span>
+      </div>
+      <h2 class="text-display-lg">
+        {siteConfig.impactSection.headline}
+      </h2>
+      <p class="text-body-lg">
+        {siteConfig.impactSection.description}
+      </p>
+    </div>
+
+    <!-- 3 Commitments Grid -->
+    <div class="commitments-grid">
+      {
+        siteConfig.impactSection.commitments.map((item, idx) => (
+          <article class="commitment-card card-hairline">
+            <div class="commitment-top">
+              <span class="commitment-index">0{idx + 1}</span>
+              <span class="badge-pill">{item.metric}</span>
+            </div>
+
+            <h3 class="text-display-sub-sm">{item.title}</h3>
+            <p class="text-body-md">{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="impact-bottom-bar">
+      <a href={siteConfig.impactSection.cta.href} class="btn btn-secondary">
+        <span>{siteConfig.impactSection.cta.label}</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .commitments-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 900px) {
+    .commitments-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .commitment-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .commitment-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+  }
+
+  .commitment-index {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .impact-bottom-bar {
+    margin-top: var(--space-2xl);
+    display: flex;
+    align-items: center;
+  }
+</style>
+

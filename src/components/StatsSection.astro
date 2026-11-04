@@ -1,0 +1,79 @@
+---
+import { siteConfig } from '../data/siteContent';
+---
+
+<section class="content-band-light" id="con-so">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow-uppercase">
+        <span class="eyebrow-dot"></span>
+        <span>{siteConfig.statsSection.eyebrow}</span>
+      </div>
+      <h2 class="text-display-lg">
+        {siteConfig.statsSection.headline}
+      </h2>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card card-feature-cream">
+        <span class="stat-number">[X]+</span>
+        <strong class="text-body-md-strong">Tin đăng đang hoạt động</strong>
+        <p class="text-caption">Được kiểm duyệt và xác minh nguồn nhà</p>
+      </div>
+
+      <div class="stat-card card-feature-cream">
+        <span class="stat-number">[X]+</span>
+        <strong class="text-body-md-strong">Người dùng mỗi tháng</strong>
+        <p class="text-caption">Lượng người tìm nhà truy cập ứng dụng & website</p>
+      </div>
+
+      <div class="stat-card card-feature-cream">
+        <span class="stat-number">[X]+</span>
+        <strong class="text-body-md-strong">Môi giới và chủ nhà đối tác</strong>
+        <p class="text-caption">Đối tác đã xác thực danh tính và nguồn nhà</p>
+      </div>
+
+      <div class="stat-card card-feature-cream">
+        <span class="stat-number">[X]</span>
+        <strong class="text-body-md-strong">Khu vực đang phủ sóng</strong>
+        <p class="text-caption">Các tỉnh / thành phố trọng điểm</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 640px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-mute);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--color-primary);
+  }
+</style>

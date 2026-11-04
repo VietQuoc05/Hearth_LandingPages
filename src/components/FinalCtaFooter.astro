@@ -1,0 +1,526 @@
+---
+import { siteConfig } from '../data/siteContent';
+---
+
+<!-- Contact & Final CTA Band -->
+<section class="content-band-light" id="lien-he">
+  <div class="container">
+    <div class="final-cta-card card-feature-dark">
+      <div class="final-cta-grid">
+        <!-- Left: Final CTA Copy & 3 Buttons -->
+        <div class="final-cta-copy">
+          <div class="eyebrow-uppercase" style="color: var(--color-on-primary);">
+            <span class="eyebrow-dot"></span>
+            <span>ĐỒNG HÀNH CÙNG HEARTH & HOMERS</span>
+          </div>
+
+          <h2 class="text-display-lg" style="color: var(--color-on-primary);">
+            {siteConfig.finalCta.headline}
+          </h2>
+
+          <p class="text-body-lg" style="color: var(--color-mute);">
+            {siteConfig.finalCta.description}
+          </p>
+
+          <div class="final-cta-buttons">
+            <a
+              href={siteConfig.product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Tải ứng dụng
+            </a>
+            <a
+              href={siteConfig.product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-tertiary"
+            >
+              Đăng tin miễn phí
+            </a>
+            <a href="#contact-form" class="btn btn-tertiary-on-dark">
+              Liên hệ hợp tác
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Quick Partnership & Contact Form -->
+        <div class="contact-form-box" id="contact-form">
+          <h3 class="text-display-sub-sm" style="color: var(--color-ink);">
+            Biểu mẫu liên hệ & hợp tác
+          </h3>
+          <p class="text-body-sm">
+            Gửi thông tin cho đội ngũ Hearth ({siteConfig.contactEmail})
+          </p>
+
+          <form class="hearth-form" id="hearth-contact-form">
+            <div class="form-row">
+              <label for="input-name" class="form-label">Họ và tên</label>
+              <input
+                id="input-name"
+                type="text"
+                class="text-input"
+                placeholder="Nhập họ tên của bạn"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="input-email" class="form-label">Email hoặc Số điện thoại</label>
+              <input
+                id="input-email"
+                type="text"
+                class="text-input"
+                placeholder="email@congty.vn / 090..."
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="input-topic" class="form-label">Nội dung quan tâm</label>
+              <select id="input-topic" class="text-input">
+                <option value="partner">Hợp tác sàn giao dịch / Chủ đầu tư</option>
+                <option value="broker">Đăng ký đối tác Môi giới trên Homers</option>
+                <option value="career">Ứng tuyển / Tuyển dụng tại Hearth</option>
+                <option value="press">Truyền thông & Báo chí</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Gửi thông tin liên hệ
+            </button>
+            <p class="form-feedback" id="form-feedback" hidden>
+              ✓ Cảm ơn bạn! Đội ngũ Hearth đã ghi nhận thông tin và sẽ phản hồi sớm nhất.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dark Coffee Footer (per DESIGN-zapier.md footer component) -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <!-- Top Footer Row: Brand + Homers Product Link + App Store / Google Play Buttons -->
+    <div class="footer-top-row">
+      <div class="footer-brand-col">
+        <div class="footer-logos">
+          <a href="#" class="footer-hearth-badge">
+            <img
+              src="/images/hearth-logo.png"
+              alt="Hearth Logo"
+              width="150"
+              height="36"
+            />
+          </a>
+
+          <span class="brand-divider">×</span>
+
+          <!-- Clickable Product Logo -> https://property-marketplace-website.vercel.app/ -->
+          <a
+            href={siteConfig.product.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-homers-badge"
+            title="Mở ứng dụng web Homers"
+          >
+            <img
+              src={siteConfig.product.logoPath}
+              alt="Homers Logo"
+              width="34"
+              height="34"
+            />
+            <span>Homers</span>
+          </a>
+        </div>
+
+        <p class="footer-tagline">
+          Hearth kết nối người tìm nhà, chủ nhà và môi giới bằng tin đăng được xác minh trên nền tảng Homers, giúp việc thuê, mua, bán nhà minh bạch và nhanh hơn.
+        </p>
+      </div>
+
+      <!-- App Store & Google Play Buttons -->
+      <div class="footer-app-downloads">
+        <span class="download-label">Tải ứng dụng {siteConfig.product.name}</span>
+        <div class="store-buttons">
+          <a
+            href={siteConfig.product.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="store-btn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.06.62-2.72 1.4-.58.68-1.1 1.79-.96 2.84 1.04.08 2.08-.52 2.72-1.3z" />
+            </svg>
+            <div class="store-btn-text">
+              <small>Tải trên</small>
+              <strong>App Store</strong>
+            </div>
+          </a>
+
+          <a
+            href={siteConfig.product.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="store-btn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z" />
+            </svg>
+            <div class="store-btn-text">
+              <small>Tải trên</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Column Footer Navigation -->
+    <div class="footer-columns">
+      {
+        siteConfig.footer.columns.map((col) => (
+          <div class="footer-col">
+            <h4 class="footer-col-title">{col.title}</h4>
+            <ul class="footer-link-list">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    target={'external' in link && link.external ? '_blank' : undefined}
+                    rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
+                    class="footer-link"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom Legal & Copyright Row -->
+    <div class="footer-bottom-row">
+      <p class="footer-copyright">
+        © 2026 {siteConfig.legalCompanyName}. Mã số doanh nghiệp {siteConfig.businessRegistrationNumber}. Địa chỉ {siteConfig.address}.
+      </p>
+
+      <div class="footer-legal-links">
+        {
+          siteConfig.footer.legalLinks.map((item, index) => (
+            <>
+              <a href={item.href} class="footer-legal-link">
+                {item.label}
+              </a>
+              {index < siteConfig.footer.legalLinks.length - 1 && (
+                <span class="legal-sep" aria-hidden="true">·</span>
+              )}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const contactForm = document.getElementById('hearth-contact-form') as HTMLFormElement | null;
+  const feedbackEl = document.getElementById('form-feedback');
+
+  if (contactForm && feedbackEl) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedbackEl.removeAttribute('hidden');
+      contactForm.reset();
+    });
+  }
+</script>
+
+<style>
+  .final-cta-card {
+    padding: var(--space-3xl);
+  }
+
+  .final-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .final-cta-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+  }
+
+  .final-cta-copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .final-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding-top: var(--space-xs);
+  }
+
+  .contact-form-box {
+    background-color: var(--color-canvas-soft);
+    color: var(--color-ink);
+    padding: var(--space-xl);
+    border-radius: var(--rounded-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hearth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-xs);
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .form-feedback {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 4px;
+  }
+
+  /* Footer Styles */
+  .site-footer {
+    background-color: var(--color-ink);
+    color: var(--color-canvas-soft);
+    padding: var(--space-4xl) 0 var(--space-3xl);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer-top-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+    padding-bottom: var(--space-3xl);
+    border-bottom: 1px solid var(--color-ink-mid);
+  }
+
+  @media (min-width: 900px) {
+    .footer-top-row {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 560px;
+  }
+
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .footer-hearth-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-canvas);
+    padding: 6px 12px;
+    border-radius: var(--rounded-sm);
+  }
+
+  .footer-hearth-badge img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .brand-divider {
+    color: var(--color-body-mid);
+    font-weight: 600;
+  }
+
+  .footer-homers-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: var(--color-ink-soft);
+    border: 1px solid var(--color-ink-mid);
+    padding: 6px 14px;
+    border-radius: var(--rounded-sm);
+    font-weight: 700;
+    color: var(--color-on-primary);
+  }
+
+  .footer-homers-badge:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .footer-homers-badge img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .footer-tagline {
+    color: var(--color-mute);
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .footer-app-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .download-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-mute);
+  }
+
+  .store-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: var(--color-ink-soft);
+    border: 1px solid var(--color-mute);
+    color: var(--color-on-primary);
+    padding: 10px 18px;
+    border-radius: var(--rounded-md);
+  }
+
+  .store-btn:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .store-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .store-btn-text small {
+    font-size: 11px;
+    color: var(--color-mute);
+  }
+
+  .store-btn:hover .store-btn-text small {
+    color: var(--color-on-primary);
+  }
+
+  .store-btn-text strong {
+    font-size: 15px;
+  }
+
+  /* 4 Columns */
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+    padding: var(--space-3xl) 0;
+    border-bottom: 1px solid var(--color-ink-mid);
+  }
+
+  @media (min-width: 900px) {
+    .footer-columns {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-col-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-link-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-link {
+    color: var(--color-canvas-soft);
+    font-size: 15px;
+  }
+
+  .footer-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Bottom Legal */
+  .footer-bottom-row {
+    padding-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-md);
+    font-size: 14px;
+    color: var(--color-body-mid);
+  }
+
+  @media (min-width: 900px) {
+    .footer-bottom-row {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .footer-legal-link {
+    color: var(--color-mute);
+  }
+
+  .footer-legal-link:hover {
+    color: var(--color-on-primary);
+  }
+</style>
+

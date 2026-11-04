@@ -1,0 +1,100 @@
+---
+import { siteConfig } from '../data/siteContent';
+---
+
+<section class="hero-band" id="ve-chung-toi">
+  <div class="container">
+    <div class="hero-copy">
+      <h1 class="text-display-xl hero-title">
+        {siteConfig.hero.headline}
+      </h1>
+
+      <p class="text-body-lg hero-subtitle">
+        {siteConfig.hero.subheadline}
+      </p>
+
+      <div class="hero-cta-group">
+        <a href={siteConfig.hero.primaryCta.href} class="btn btn-primary">
+          <span>{siteConfig.hero.primaryCta.label}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href={siteConfig.hero.secondaryCta.href} class="btn btn-tertiary hero-btn-secondary">
+          {siteConfig.hero.secondaryCta.label}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-band {
+    position: relative;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(255, 254, 251, 0.45) 0%,
+        rgba(255, 254, 251, 0.25) 45%,
+        rgba(255, 254, 251, 0.05) 80%,
+        transparent 100%
+      ),
+      url('/images/hero-bg.png');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding: clamp(64px, 8vw, 110px) 0;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero-band {
+      background-image:
+        linear-gradient(
+          rgba(255, 254, 251, 0.6),
+          rgba(255, 254, 251, 0.45)
+        ),
+        url('/images/hero-bg.png');
+      padding: var(--space-4xl) 0;
+    }
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    max-width: 760px;
+  }
+
+  .hero-title {
+    margin-top: var(--space-xs);
+    text-shadow: 0 1px 3px rgba(255, 254, 251, 0.8), 0 0 12px rgba(255, 254, 251, 0.6);
+  }
+
+  .hero-subtitle {
+    max-width: 640px;
+    color: var(--color-ink);
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 254, 251, 0.9);
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding-top: var(--space-xs);
+  }
+
+  .hero-btn-secondary {
+    background-color: rgba(255, 254, 251, 0.92);
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-btn-secondary:hover {
+    background-color: var(--color-canvas);
+  }
+</style>

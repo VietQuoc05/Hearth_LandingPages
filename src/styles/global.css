@@ -1,0 +1,437 @@
+/* ==========================================================================
+   Hearth Corporate Landing Page — Zapier Design System Implementation
+   Source: D:\Hearth\DESIGN-zapier.md
+   ========================================================================== */
+
+:root {
+  /* Brand & Accent Colors */
+  --color-primary: #ff4f00;
+  --color-primary-hover: #e04500;
+  --color-on-primary: #fffefb;
+
+  /* Ink & Text Ladder (Warm Coffee) */
+  --color-ink: #201515;
+  --color-ink-soft: #2f2a26;
+  --color-ink-mid: #36342e;
+  --color-body: #605d52;
+  --color-body-mid: #939084;
+  --color-mute: #c5c0b1;
+
+  /* Surface Colors (Warm Cream) */
+  --color-canvas: #fffefb;
+  --color-canvas-soft: #f8f4f0;
+
+  /* Font Families */
+  --font-display: 'Degular Display', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Border Radius Tokens */
+  --rounded-none: 0px;
+  --rounded-sm: 6px;
+  --rounded-md: 12px;
+  --rounded-pill: 9999px;
+  --rounded-full: 9999px;
+
+  /* Spacing System (Base unit: 4px) */
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+
+  /* Layout Container */
+  --container-max: 1280px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 27px;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Typography Scale (DESIGN-zapier.md)
+   ========================================================================== */
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.06;
+  color: var(--color-ink);
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.8vw, 32px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 1px;
+}
+
+.text-display-sub-lg {
+  font-family: var(--font-sans);
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+.text-display-sub-md {
+  font-family: var(--font-sans);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.text-display-sub-sm {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.6px;
+}
+
+.text-display-xs {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+}
+
+.text-body-lg {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: var(--color-body);
+}
+
+.text-body-md {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: var(--color-body);
+}
+
+.text-body-md-strong {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  color: var(--color-ink);
+}
+
+.text-body-sm {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.text-body-sm-strong {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-ink);
+}
+
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--color-body-mid);
+}
+
+.eyebrow-uppercase {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--rounded-full);
+  background-color: var(--color-primary);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Layout & Bands
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+.hero-band {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  padding: var(--space-4xl) 0;
+}
+
+.hero-band-dark {
+  background-color: var(--color-ink);
+  color: var(--color-on-primary);
+  padding: var(--space-4xl) 0;
+}
+
+.content-band-cream {
+  background-color: var(--color-canvas-soft);
+  color: var(--color-ink);
+  padding: var(--space-4xl) 0;
+}
+
+.content-band-light {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  padding: var(--space-4xl) 0;
+}
+
+.section-header {
+  max-width: 780px;
+  margin-bottom: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ==========================================================================
+   Buttons (Strict 12px rounded-md, never pills for CTAs)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--rounded-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-ink);
+  color: var(--color-on-primary);
+  border-color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-ink-soft);
+  border-color: var(--color-ink-soft);
+}
+
+.btn-tertiary {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+
+.btn-tertiary:hover {
+  background-color: var(--color-canvas-soft);
+}
+
+.btn-tertiary-on-dark {
+  background-color: transparent;
+  color: var(--color-on-primary);
+  border: 1px solid var(--color-mute);
+}
+
+.btn-tertiary-on-dark:hover {
+  background-color: var(--color-ink-soft);
+  border-color: var(--color-on-primary);
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14.4px;
+  font-weight: 700;
+  line-height: 14.4px;
+  letter-spacing: 0.144px;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--rounded-md);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-text:hover {
+  background-color: var(--color-canvas-soft);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Cards & Badges
+   ========================================================================== */
+
+.card-content,
+.card-feature-cream {
+  background-color: var(--color-canvas-soft);
+  color: var(--color-ink);
+  border-radius: var(--rounded-md);
+  padding: var(--space-xl);
+}
+
+.card-surface-canvas {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border-radius: var(--rounded-md);
+  padding: var(--space-xl);
+}
+
+.card-hairline {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--rounded-md);
+  padding: var(--space-xl);
+}
+
+.card-feature-dark {
+  background-color: var(--color-ink);
+  color: var(--color-on-primary);
+  border-radius: var(--rounded-md);
+  padding: var(--space-xl);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--color-canvas-soft);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--rounded-pill);
+}
+
+.badge-pill-orange {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.badge-pill-outline {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-mute);
+  color: var(--color-ink-mid);
+}
+
+/* Form Input Primitive */
+.text-input {
+  width: 100%;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 27px;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--rounded-sm);
+  outline: none;
+}
+
+.text-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(255, 79, 0, 0.2);
+}
+
+.text-input::placeholder {
+  color: var(--color-body-mid);
+}
+
