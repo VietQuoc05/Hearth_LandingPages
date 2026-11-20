@@ -10,12 +10,12 @@ import { siteConfig } from '../data/siteContent';
         src="/images/hearth-logo.png"
         alt="Hearth Logo"
         class="brand-logo-img"
-        width="195"
-        height="42"
+        width="148"
+        height="32"
       />
     </a>
 
-    <!-- Desktop Navigation Links -->
+    <!-- Navigation Links -->
     <nav class="nav-links" aria-label="Thanh điều hướng chính">
       {
         siteConfig.navItems.map((item) => (
@@ -32,72 +32,10 @@ import { siteConfig } from '../data/siteContent';
       }
     </nav>
 
-    <!-- Right Actions: Primary CTA -->
-    <div class="nav-actions">
-      <a href="#doi-ngu" class="btn btn-primary nav-cta-btn">
-        Tham gia cùng chúng tôi
-      </a>
-
-      <!-- Mobile Menu Toggle -->
-      <button
-        type="button"
-        class="mobile-menu-btn"
-        id="mobile-menu-toggle"
-        aria-expanded="false"
-        aria-label="Mở menu điều hướng"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobile-drawer" hidden>
-    <div class="container mobile-drawer-inner">
-      <div class="mobile-nav-list">
-        {
-          siteConfig.navItems.map((item) => (
-            <a href={item.href} class="mobile-nav-link">
-              <span class="mobile-nav-label">{item.label}</span>
-              <span class="mobile-nav-desc">{item.description}</span>
-            </a>
-          ))
-        }
-      </div>
-      <div class="mobile-drawer-footer">
-        <a href="#doi-ngu" class="btn btn-primary" style="width: 100%; font-size: 15px; min-height: 40px; padding: 8px 16px;">
-          Tham gia cùng chúng tôi
-        </a>
-      </div>
-    </div>
+    <!-- Empty Spacer to symmetrically balance the Logo and keep nav-links perfectly centered -->
+    <div class="nav-spacer" aria-hidden="true"></div>
   </div>
 </header>
-
-<script>
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const drawer = document.getElementById('mobile-drawer');
-
-  if (toggleBtn && drawer) {
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-      if (isExpanded) {
-        drawer.setAttribute('hidden', '');
-      } else {
-        drawer.removeAttribute('hidden');
-      }
-    });
-
-    drawer.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        drawer.setAttribute('hidden', '');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-</script>
 
 <style>
   .site-navbar {
@@ -114,7 +52,7 @@ import { siteConfig } from '../data/siteContent';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .brand-logo {
@@ -125,7 +63,7 @@ import { siteConfig } from '../data/siteContent';
   }
 
   .brand-logo-img {
-    height: 42px;
+    height: 32px;
     width: auto;
     object-fit: contain;
     transition: transform 0.2s ease;
@@ -133,19 +71,58 @@ import { siteConfig } from '../data/siteContent';
 
   @media (max-width: 640px) {
     .brand-logo-img {
-      height: 33px;
+      height: 26px;
     }
   }
 
   .nav-links {
-    display: none;
+    display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
   }
 
-  @media (min-width: 1024px) {
+  .nav-spacer {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .navbar-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+
+    .brand-logo {
+      justify-self: start;
+    }
+
     .nav-links {
       display: flex;
+      justify-self: center;
+    }
+
+    .nav-spacer {
+      display: block;
+      justify-self: end;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-inner {
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      padding: 4px 8px;
     }
   }
 
@@ -154,6 +131,7 @@ import { siteConfig } from '../data/siteContent';
   }
 
   .nav-link {
+    position: relative;
     display: inline-block;
     font-size: 16px;
     font-weight: 500;
@@ -161,11 +139,36 @@ import { siteConfig } from '../data/siteContent';
     color: var(--color-ink);
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--rounded-sm);
+    overflow: hidden;
+    transition: color 0.18s ease, background-color 0.18s ease;
   }
 
-  .nav-link:hover {
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-item-wrapper:hover .nav-link,
+  .nav-link:hover,
+  .nav-link:focus-visible {
     background-color: var(--color-canvas-soft);
     color: var(--color-primary);
+  }
+
+  .nav-item-wrapper:hover .nav-link::after,
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
   .nav-tooltip {
@@ -207,88 +210,4 @@ import { siteConfig } from '../data/siteContent';
     line-height: 18px;
     color: var(--color-canvas-soft);
   }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  .nav-cta-btn {
-    display: none;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 8px 16px;
-    min-height: 38px;
-  }
-
-  @media (min-width: 768px) {
-    .nav-cta-btn {
-      display: inline-flex;
-    }
-  }
-
-  .mobile-menu-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: var(--rounded-md);
-    border: 1px solid var(--color-ink);
-    background-color: var(--color-canvas);
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  @media (min-width: 1024px) {
-    .mobile-menu-btn {
-      display: none;
-    }
-  }
-
-  .mobile-drawer {
-    border-top: 1px solid var(--color-mute);
-    background-color: var(--color-canvas);
-    padding: var(--space-lg) 0;
-  }
-
-  .mobile-drawer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .mobile-nav-link {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-md);
-    border-radius: var(--rounded-md);
-    background-color: var(--color-canvas-soft);
-  }
-
-  .mobile-nav-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink);
-  }
-
-  .mobile-nav-desc {
-    font-size: 14px;
-    color: var(--color-body);
-  }
-
-  .mobile-drawer-footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
 </style>
-

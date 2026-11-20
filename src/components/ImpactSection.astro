@@ -24,7 +24,7 @@ import { siteConfig } from '../data/siteContent';
           <article class="commitment-card card-hairline">
             <div class="commitment-top">
               <span class="commitment-index">0{idx + 1}</span>
-              <span class="badge-pill">{item.metric}</span>
+              <span class="badge-pill badge-pill-green">{item.metric}</span>
             </div>
 
             <h3 class="text-display-sub-sm">{item.title}</h3>
@@ -32,15 +32,6 @@ import { siteConfig } from '../data/siteContent';
           </article>
         ))
       }
-    </div>
-
-    <div class="impact-bottom-bar">
-      <a href={siteConfig.impactSection.cta.href} class="btn btn-secondary">
-        <span>{siteConfig.impactSection.cta.label}</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
     </div>
   </div>
 </section>
@@ -78,12 +69,6 @@ import { siteConfig } from '../data/siteContent';
     font-weight: 500;
     color: var(--color-primary);
     line-height: 1;
-  }
-
-  .impact-bottom-bar {
-    margin-top: var(--space-2xl);
-    display: flex;
-    align-items: center;
   }
 </style>
 

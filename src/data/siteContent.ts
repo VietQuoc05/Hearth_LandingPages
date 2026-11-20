@@ -45,7 +45,7 @@ export const siteConfig = {
   legalCompanyName: 'Công ty Cổ phần Công nghệ Bất động sản Hearth Việt Nam',
   businessRegistrationNumber: '[MSDN: Đang cập nhật]',
   address: '[Địa chỉ văn phòng, TP. Hồ Chí Minh, Việt Nam]',
-  contactEmail: 'hello@hearth.vn',
+  contactEmail: 'contact@hearth.vn',
   product: {
     name: 'Homers',
     tagline: 'Ứng dụng & Website tìm nhà minh bạch',
@@ -70,11 +70,6 @@ export const siteConfig = {
       description: 'Ứng dụng và website Homers cho người tìm nhà, chủ nhà, môi giới',
     },
     {
-      label: 'Tuyển dụng',
-      href: '#doi-ngu',
-      description: 'Vị trí đang mở và văn hóa làm việc',
-    },
-    {
       label: 'Cộng đồng',
       href: '#tac-dong',
       description: 'Hoạt động vì cộng đồng và báo cáo tác động',
@@ -93,7 +88,7 @@ export const siteConfig = {
   hero: {
     headline: 'Đồng hành cùng mọi tổ ấm',
     subheadline:
-      'Hearth xây dựng 1 hệ sinh thái kết nối các dịch vụ với nhu cầu xoay quanh tổ ấm của người Việt',
+      'Chúng tôi xây dựng một hệ sinh thái phục vụ các nhu cầu xoay quanh tổ ấm của người Việt',
     alternativeHeadlines: [
       'Tìm nhà dễ hơn, chọn nhà tự tin hơn',
       'Bất động sản rõ ràng, giao dịch an tâm',
@@ -105,7 +100,7 @@ export const siteConfig = {
     },
     secondaryCta: {
       label: 'Tham gia cùng chúng tôi',
-      href: '#doi-ngu',
+      href: '#lien-he',
     },
   },
   productSection: {
@@ -315,7 +310,7 @@ export const siteConfig = {
         links: [
           { label: 'Về chúng tôi', href: '#ve-chung-toi' },
           { label: 'Sản phẩm Homers', href: '#san-pham' },
-          { label: 'Tuyển dụng', href: '#doi-ngu' },
+          { label: 'Cộng đồng', href: '#tac-dong' },
           { label: 'Tin tức', href: '#tin-tuc' },
           { label: 'Liên hệ', href: '#lien-he' },
         ],

@@ -5,15 +5,17 @@ import { siteConfig } from '../data/siteContent';
 <!-- Contact & Final CTA Band -->
 <section class="content-band-light" id="lien-he">
   <div class="container">
+    <div class="final-cta-eyebrow-wrapper">
+      <div class="eyebrow-uppercase">
+        <span class="eyebrow-dot"></span>
+        <span>ĐỒNG HÀNH CÙNG HEARTH & HOMERS</span>
+      </div>
+    </div>
+
     <div class="final-cta-card card-feature-dark">
       <div class="final-cta-grid">
         <!-- Left: Final CTA Copy & 3 Buttons -->
         <div class="final-cta-copy">
-          <div class="eyebrow-uppercase" style="color: var(--color-on-primary);">
-            <span class="eyebrow-dot"></span>
-            <span>ĐỒNG HÀNH CÙNG HEARTH & HOMERS</span>
-          </div>
-
           <h2 class="text-display-lg" style="color: var(--color-on-primary);">
             {siteConfig.finalCta.headline}
           </h2>
@@ -56,12 +58,12 @@ import { siteConfig } from '../data/siteContent';
 
           <form class="hearth-form" id="hearth-contact-form">
             <div class="form-row">
-              <label for="input-name" class="form-label">Họ và tên</label>
+              <label for="input-name" class="form-label">Họ và tên hoặc tên doanh nghiệp</label>
               <input
                 id="input-name"
                 type="text"
                 class="text-input"
-                placeholder="Nhập họ tên của bạn"
+                placeholder="Nhập họ tên hoặc tên doanh nghiệp"
                 required
               />
             </div>
@@ -241,6 +243,10 @@ import { siteConfig } from '../data/siteContent';
 </script>
 
 <style>
+  .final-cta-eyebrow-wrapper {
+    margin-bottom: var(--space-xl);
+  }
+
   .final-cta-card {
     padding: var(--space-3xl);
   }
